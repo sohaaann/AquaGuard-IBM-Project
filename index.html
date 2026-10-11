@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AquaGuard AI - water-quality screening (demo)</title>
+<meta name="description" content="Browser-based water-quality analysis and preliminary screening. Educational tool; not a safety certification.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#view">Skip to main content</a>
+<div class="app">
+  <aside class="side" id="side" aria-label="Primary">
+    <div class="brand"><img src="assets/logo.svg" alt="" width="38" height="38"><div><b>AquaGuard AI</b><small>SDG 6 &middot; screening tool</small></div></div>
+    <nav class="nav" id="nav" aria-label="Sections">
+      <button data-action="nav" data-section="dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>Dashboard</button>
+      <button data-action="nav" data-section="samples"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Samples</button>
+      <button data-action="nav" data-section="import"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3h16v-3"/></svg>CSV import / export</button>
+      <button data-action="nav" data-section="screening"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Screening</button>
+      <button data-action="nav" data-section="analytics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 20h18M6 16V9m6 7V5m6 11v-6"/></svg>Analytics</button>
+      <button data-action="nav" data-section="reports"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg>Reports</button>
+      <button data-action="nav" data-section="about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>About &amp; methodology</button>
+    </nav>
+    <p class="note">Educational screening tool. Not endorsed by IBM, the UN or any government agency. Data stays in this browser.</p>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="row">
+        <button class="btn secondary menu-btn" data-action="toggleMenu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="side">&#9776; Menu</button>
+        <div id="demoBanner" class="demo-banner" role="status" hidden>DEMO MODE &mdash; ALL INITIAL SAMPLE DATA IS SYNTHETIC</div>
+      </div>
+      <div class="profile">
+        <label for="profileSel" class="hint" style="font-weight:600">Reference profile</label>
+        <select id="profileSel" data-input="profile"></select>
+        <span id="verifChip" class="chip unverified" title="Threshold verification status"></span>
+        <button class="btn secondary small" data-action="resetDemo" title="Restore the original synthetic dataset (your own records are kept)">Reset Demo</button>
+      </div>
+    </header>
+    <div id="storageWarn" class="err-list" hidden>Your browser is blocking local storage, so records will be lost when you close or refresh this page.</div>
+
+    <section id="filters" class="filters" aria-label="Filters">
+      <div class="field"><label for="fSearch">Search</label><input id="fSearch" type="search" placeholder="ID, location, source, date" data-input="search"></div>
+      <div class="field"><label for="fFrom">From date</label><input id="fFrom" type="date" data-input="from"></div>
+      <div class="field"><label for="fTo">To date</label><input id="fTo" type="date" data-input="to"></div>
+      <div class="field"><span class="lbl" id="locLbl">Locations (none ticked = all)</span><div class="checks" id="fLocs" role="group" aria-labelledby="locLbl"></div></div>
+      <button class="btn secondary small" data-action="clearFilters">Clear filters</button>
+      <span class="count-note" id="countNote" aria-live="polite"></span>
+    </section>
+
+    <main id="view" tabindex="-1"></main>
+  </div>
+</div>
+
+<dialog id="sampleDlg" aria-labelledby="sampleDlgTitle">
+  <form id="sampleForm" method="dialog" novalidate>
+    <div class="dlg-head"><h2 id="sampleDlgTitle">Add sample</h2><button type="button" class="btn secondary small" data-action="closeDlg" data-dlg="sampleDlg" aria-label="Close">Close</button></div>
+    <div class="dlg-body" id="sampleDlgBody"></div>
+    <div class="dlg-foot"><button type="button" class="btn secondary" data-action="closeDlg" data-dlg="sampleDlg">Cancel</button><button type="submit" class="btn" id="sampleSave">Save sample</button></div>
+  </form>
+</dialog>
+<dialog id="confirmDlg" aria-labelledby="confirmTitle">
+  <div class="dlg-head"><h2 id="confirmTitle">Please confirm</h2></div>
+  <div class="dlg-body"><p id="confirmMsg"></p></div>
+  <div class="dlg-foot"><button class="btn secondary" id="confirmNo">Cancel</button><button class="btn danger" id="confirmYes">Confirm</button></div>
+</dialog>
+<dialog id="detailDlg" aria-labelledby="detailTitle">
+  <div class="dlg-head"><h2 id="detailTitle">Sample details</h2><button class="btn secondary small" data-action="closeDlg" data-dlg="detailDlg">Close</button></div>
+  <div class="dlg-body" id="detailBody"></div>
+</dialog>
+<div id="toasts" aria-live="polite" role="status"></div>
+
+<noscript><div style="padding:2rem"><strong>AquaGuard AI needs JavaScript.</strong> Please enable JavaScript in your browser.</div></noscript>
+<script src="js/data.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/analysis.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/reports.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

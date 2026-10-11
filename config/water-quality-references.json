@@ -1,0 +1,141 @@
+{
+  "_meta": {
+    "schema_version": 1,
+    "verification_note": "Values were entered from the authors' knowledge of the cited documents WITHOUT live access to the sources (the build environment had no internet). Every criterion is therefore marked 'unverified_offline'. Confirm each value against the source URL before relying on it, then set verification_status to 'verified' and note the date. Nothing here is endorsed by BIS, WHO, CPCB, IBM or the UN.",
+    "criterion_types": {
+      "health_based": "Derived from health evidence; exceedance warrants public-health follow-up.",
+      "aesthetic_or_operational": "Acceptability (taste, appearance) or treatment/operational indicator; not on its own a health determination.",
+      "environmental_indicator": "Surface-water designated-use indicator; not a drinking-water guideline."
+    },
+    "status_labels": {
+      "verified": "Verified against source",
+      "unverified_offline": "UNVERIFIED (entered offline)"
+    }
+  },
+  "profiles": {
+    "BIS_IS10500_acceptable": {
+      "label": "BIS IS 10500 - Acceptable Limit (India, drinking water)",
+      "applicability": "Drinking water in India (not packaged water). Screens only pH, turbidity and TDS against the 'Acceptable Limit' column; this is NOT a compliance check against the full standard.",
+      "standard": "IS 10500 Drinking Water - Specification",
+      "edition": "IS 10500:2012 (edition number and any later amendment/revision to be confirmed)",
+      "source_url": "https://www.bis.gov.in",
+      "parameters": {
+        "ph": {
+          "min": 6.5,
+          "max": 8.5,
+          "unit": "pH units",
+          "criterion_type": "aesthetic_or_operational",
+          "verification_status": "unverified_offline",
+          "note": "Acceptable limit range; no relaxation in absence of alternate source."
+        },
+        "turbidity_ntu": {
+          "max": 1.0,
+          "unit": "NTU",
+          "criterion_type": "aesthetic_or_operational",
+          "verification_status": "unverified_offline",
+          "note": "Acceptable limit 1 NTU; permissible limit in absence of alternate source is 5 NTU."
+        },
+        "tds_mg_l": {
+          "max": 500.0,
+          "unit": "mg/L",
+          "criterion_type": "aesthetic_or_operational",
+          "verification_status": "unverified_offline",
+          "note": "Acceptable limit 500 mg/L; permissible limit in absence of alternate source is 2000 mg/L."
+        }
+      }
+    },
+    "BIS_IS10500_permissible": {
+      "label": "BIS IS 10500 - Permissible Limit in absence of alternate source",
+      "applicability": "Used where no alternate source exists; relaxed upper limits. Screening only; not a compliance check.",
+      "standard": "IS 10500 Drinking Water - Specification",
+      "edition": "IS 10500:2012 (edition number and any later amendment/revision to be confirmed)",
+      "source_url": "https://www.bis.gov.in",
+      "parameters": {
+        "ph": {
+          "min": 6.5,
+          "max": 8.5,
+          "unit": "pH units",
+          "criterion_type": "aesthetic_or_operational",
+          "verification_status": "unverified_offline",
+          "note": "No relaxation of pH range."
+        },
+        "turbidity_ntu": {
+          "max": 5.0,
+          "unit": "NTU",
+          "criterion_type": "aesthetic_or_operational",
+          "verification_status": "unverified_offline",
+          "note": "Permissible limit in absence of alternate source."
+        },
+        "tds_mg_l": {
+          "max": 2000.0,
+          "unit": "mg/L",
+          "criterion_type": "aesthetic_or_operational",
+          "verification_status": "unverified_offline",
+          "note": "Permissible limit in absence of alternate source."
+        }
+      }
+    },
+    "WHO_GDWQ_operational": {
+      "label": "WHO GDWQ - Operational/acceptability indicators (conservative)",
+      "applicability": "International drinking-water guidance. WHO sets NO health-based guideline value for pH, TDS or turbidity; the values below are operational/acceptability indicators only. Temperature and conductivity are intentionally left unconfigured.",
+      "standard": "Guidelines for drinking-water quality, 4th edition incorporating the 1st and 2nd addenda",
+      "edition": "2022",
+      "source_url": "https://www.who.int/publications/i/item/9789240045064",
+      "parameters": {
+        "ph": {
+          "min": 6.5,
+          "max": 8.5,
+          "unit": "pH units",
+          "criterion_type": "aesthetic_or_operational",
+          "verification_status": "unverified_offline",
+          "note": "Commonly cited operational range; optimum pH varies with water and distribution materials."
+        },
+        "turbidity_ntu": {
+          "max": 1.0,
+          "unit": "NTU",
+          "criterion_type": "aesthetic_or_operational",
+          "verification_status": "unverified_offline",
+          "note": "Ideal below 1 NTU for effective disinfection; not a health-based guideline value."
+        },
+        "tds_mg_l": {
+          "max": 600.0,
+          "unit": "mg/L",
+          "criterion_type": "aesthetic_or_operational",
+          "verification_status": "unverified_offline",
+          "note": "Taste acceptability: generally good below 600 mg/L; no health-based guideline value."
+        }
+      }
+    },
+    "CPCB_surface_water_class_A": {
+      "label": "CPCB Designated Best Use Class A - drinking-water source (surface water, indicative)",
+      "applicability": "Raw surface-water sources (lakes, rivers) before conventional treatment, India. An environmental-indicator profile, NOT a drinking-water guideline for treated or tap water.",
+      "standard": "CPCB Water Quality Criteria - Designated Best Use Classification",
+      "edition": "Edition/year to be confirmed",
+      "source_url": "https://cpcb.nic.in",
+      "parameters": {
+        "ph": {
+          "min": 6.5,
+          "max": 8.5,
+          "unit": "pH units",
+          "criterion_type": "environmental_indicator",
+          "verification_status": "unverified_offline",
+          "note": "Class A range."
+        },
+        "dissolved_oxygen_mg_l": {
+          "min": 6.0,
+          "unit": "mg/L",
+          "criterion_type": "environmental_indicator",
+          "verification_status": "unverified_offline",
+          "note": "Class A minimum DO 6 mg/L."
+        },
+        "tds_mg_l": {
+          "max": 500.0,
+          "unit": "mg/L",
+          "criterion_type": "environmental_indicator",
+          "verification_status": "unverified_offline",
+          "note": "Class A total dissolved solids 500 mg/L."
+        }
+      }
+    }
+  }
+}

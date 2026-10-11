@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AquaGuard AI logo">
+  <title>AquaGuard AI</title>
+  <path d="M32 4 L56 13 V31 C56 45 46 55 32 60 C18 55 8 45 8 31 V13 Z" fill="#0b6e99"/>
+  <path d="M32 14 C32 14 21 27 21 34 a11 11 0 0 0 22 0 C43 27 32 14 32 14 Z" fill="#ffffff"/>
+  <path d="M26.5 35 a5.5 5.5 0 0 0 5.5 5.5" fill="none" stroke="#1fa3c4" stroke-width="2.4" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,95 @@
+{
+  "total": 120,
+  "locations": [
+    "Site A",
+    "Site B",
+    "Site C",
+    "Site D"
+  ],
+  "firstDate": "2026-08-01",
+  "lastDate": "2026-10-10",
+  "profiles": {
+    "BIS_IS10500_acceptable": {
+      "label": "BIS IS 10500 - Acceptable Limit (India, drinking water)",
+      "statuses": {
+        "within": 84,
+        "flagged": 32,
+        "insufficient": 4,
+        "invalid": 0
+      }
+    },
+    "BIS_IS10500_permissible": {
+      "label": "BIS IS 10500 - Permissible Limit in absence of alternate source",
+      "statuses": {
+        "within": 113,
+        "flagged": 3,
+        "insufficient": 4,
+        "invalid": 0
+      }
+    },
+    "WHO_GDWQ_operational": {
+      "label": "WHO GDWQ - Operational/acceptability indicators (conservative)",
+      "statuses": {
+        "within": 100,
+        "flagged": 16,
+        "insufficient": 4,
+        "invalid": 0
+      }
+    },
+    "CPCB_surface_water_class_A": {
+      "label": "CPCB Designated Best Use Class A - drinking-water source (surface water, indicative)",
+      "statuses": {
+        "within": 94,
+        "flagged": 22,
+        "insufficient": 4,
+        "invalid": 0
+      }
+    }
+  },
+  "outliers": 5,
+  "outlierIds": [
+    "DEMO-029",
+    "DEMO-030",
+    "DEMO-113",
+    "DEMO-088",
+    "DEMO-048"
+  ],
+  "outliersWithin": 6,
+  "missing": [
+    {
+      "label": "pH",
+      "count": 2,
+      "pct": 1.7
+    },
+    {
+      "label": "Turbidity",
+      "count": 4,
+      "pct": 3.3
+    },
+    {
+      "label": "Total dissolved solids (TDS)",
+      "count": 4,
+      "pct": 3.3
+    },
+    {
+      "label": "Temperature",
+      "count": 0,
+      "pct": 0
+    },
+    {
+      "label": "Electrical conductivity",
+      "count": 25,
+      "pct": 20.8
+    },
+    {
+      "label": "Dissolved oxygen",
+      "count": 67,
+      "pct": 55.8
+    }
+  ],
+  "bisFindingsByParameter": {
+    "Total dissolved solids (TDS)": 17,
+    "Turbidity": 14,
+    "pH": 2
+  }
+}

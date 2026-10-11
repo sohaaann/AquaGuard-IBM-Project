@@ -1,0 +1,220 @@
+{
+  "unit": {
+    "total": 75,
+    "passed": 75,
+    "failed": 0,
+    "ran": "2026-10-11T11:24:07.893Z",
+    "node": "v22.22.2"
+  },
+  "e2e": {
+    "total": 46,
+    "passed": 46,
+    "failed": 0,
+    "browser": "Chromium (Playwright headless_shell 1194)",
+    "ran": "2026-10-11T11:24:07.782Z",
+    "failures": []
+  },
+  "e2eChecks": [
+    {
+      "name": "index.html opens via file:// and preloads demo data with no setup",
+      "ok": true
+    },
+    {
+      "name": "visible label \"DEMO MODE — ALL INITIAL SAMPLE DATA IS SYNTHETIC\"",
+      "ok": true
+    },
+    {
+      "name": "dashboard KPIs equal values calculated independently from the dataset",
+      "ok": true
+    },
+    {
+      "name": "dashboard has charts, parameter summary and recent samples table",
+      "ok": true
+    },
+    {
+      "name": "all seven sections render without console errors",
+      "ok": true
+    },
+    {
+      "name": "no network requests: fully offline (no external libraries or fonts)",
+      "ok": true
+    },
+    {
+      "name": "add sample: invalid input shows clear errors and nothing is saved",
+      "ok": true
+    },
+    {
+      "name": "add sample: missing measurements -> \"At least one measurement is required\"",
+      "ok": true
+    },
+    {
+      "name": "add sample: valid record is saved, listed, counted and flagged correctly",
+      "ok": true
+    },
+    {
+      "name": "duplicate Sample ID is rejected",
+      "ok": true
+    },
+    {
+      "name": "edit a user record (value + re-screening)",
+      "ok": true
+    },
+    {
+      "name": "demo records are read-only (no edit/delete buttons)",
+      "ok": true
+    },
+    {
+      "name": "delete asks for confirmation; cancel keeps, confirm deletes",
+      "ok": true
+    },
+    {
+      "name": "persistence: user record survives a page refresh; storage keys exist",
+      "ok": true
+    },
+    {
+      "name": "refresh does not duplicate or re-seed demo data",
+      "ok": true
+    },
+    {
+      "name": "location filter updates KPIs, table and charts",
+      "ok": true
+    },
+    {
+      "name": "date-range filter works",
+      "ok": true
+    },
+    {
+      "name": "search filters the samples table; clear filters restores everything",
+      "ok": true
+    },
+    {
+      "name": "sorting and pagination work",
+      "ok": true
+    },
+    {
+      "name": "profile switch recalculates screening (permissible profile flags fewer)",
+      "ok": true
+    },
+    {
+      "name": "screening page shows profile provenance, unverified status, flagged table, no \"safe\" badge",
+      "ok": true
+    },
+    {
+      "name": "sample detail dialog explains a flagged measurement with next step",
+      "ok": true
+    },
+    {
+      "name": "analytics: charts render and react to parameter changes and data changes",
+      "ok": true
+    },
+    {
+      "name": "outlier detection lists the planted anomalies and reacts to the threshold",
+      "ok": true
+    },
+    {
+      "name": "CSV upload: valid file is previewed, validated and imported",
+      "ok": true
+    },
+    {
+      "name": "CSV upload: rejected rows are listed with reasons (nothing dropped silently), valid rows still importable",
+      "ok": true
+    },
+    {
+      "name": "CSV upload: empty.csv -> clear error message, app keeps working",
+      "ok": true
+    },
+    {
+      "name": "CSV upload: headeronly.csv -> clear error message, app keeps working",
+      "ok": true
+    },
+    {
+      "name": "CSV upload: units.csv -> clear error message, app keeps working",
+      "ok": true
+    },
+    {
+      "name": "CSV upload: nocols.csv -> clear error message, app keeps working",
+      "ok": true
+    },
+    {
+      "name": "CSV upload: broken.csv -> clear error message, app keeps working",
+      "ok": true
+    },
+    {
+      "name": "CSV upload: binary file rejected",
+      "ok": true
+    },
+    {
+      "name": "failed uploads did not change the stored data",
+      "ok": true
+    },
+    {
+      "name": "CSV template download is a valid import file",
+      "ok": true
+    },
+    {
+      "name": "filtered records export matches active filters and is formula-safe",
+      "ok": true
+    },
+    {
+      "name": "HTML report: preview + download reflect the active filters and profile",
+      "ok": true
+    },
+    {
+      "name": "screening and flagged-observation CSV exports download",
+      "ok": true
+    },
+    {
+      "name": "Print / save-as-PDF button runs without error (print dialog itself cannot be verified headless)",
+      "ok": true
+    },
+    {
+      "name": "Reset Demo restores synthetic data, keeps user records; Remove demo / Delete mine work",
+      "ok": true
+    },
+    {
+      "name": "Reset Demo can be cancelled",
+      "ok": true
+    },
+    {
+      "name": "keyboard: skip link first in tab order; Escape closes dialogs; nav buttons expose aria-current",
+      "ok": true
+    },
+    {
+      "name": "all form inputs and filter controls have accessible labels",
+      "ok": true
+    },
+    {
+      "name": "mobile layout (390px): no horizontal page overflow, menu opens, charts fit",
+      "ok": true
+    },
+    {
+      "name": "no console errors or warnings during the whole session",
+      "ok": true
+    },
+    {
+      "name": "still no network requests after the whole session",
+      "ok": true
+    },
+    {
+      "name": "localStorage blocked: app still works with demo data and warns the user",
+      "ok": true
+    }
+  ],
+  "assets": {
+    "referenced": [
+      "assets/logo.svg",
+      "css/styles.css",
+      "assets/logo.svg",
+      "js/data.js",
+      "js/validation.js",
+      "js/storage.js",
+      "js/analysis.js",
+      "js/charts.js",
+      "js/reports.js",
+      "js/app.js"
+    ],
+    "jsFiles": 7,
+    "problems": [],
+    "ok": true
+  }
+}
